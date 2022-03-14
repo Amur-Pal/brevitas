@@ -82,7 +82,108 @@ class QuantSigmoid(QuantNLAL):
             return_quant_tensor=return_quant_tensor,
             **kwargs)
 
+class QuantRReLU(QuantNLAL):
 
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.RReLU,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+
+class QuantGeLU(QuantNLAL):
+
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.GELU,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+        
+class QuantSeLU(QuantNLAL):
+
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.SELU,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+
+class QuantSigmoid(QuantNLAL):
+
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.SiLU,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+        
+class QuantHardswish(QuantNLAL):
+
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.Hardswish,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+        
+class QuantLeakyReLU(QuantNLAL):
+
+    def __init__(
+            self,
+            act_quant: Optional[ActQuantType] = Uint8ActPerTensorFloat,
+            input_quant: Optional[ActQuantType] = None,
+            return_quant_tensor: bool = False,
+            **kwargs):
+        QuantNLAL.__init__(
+            self,
+            act_impl=nn.LeakyReLU,
+            passthrough_act=False,
+            input_quant=input_quant,
+            act_quant=act_quant,
+            return_quant_tensor=return_quant_tensor,
+            **kwargs)
+        
 class QuantTanh(QuantNLAL):
 
     def __init__(
